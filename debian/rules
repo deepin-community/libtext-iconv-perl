@@ -1,0 +1,10 @@
+#!/usr/bin/make -f
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+bindnow
+
+%:
+	dh $@
+
+# this package works with only perl-base, it should not depend on perl
+override_dh_perl:
+	dh_perl -d
